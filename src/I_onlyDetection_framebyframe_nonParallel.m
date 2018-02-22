@@ -6,7 +6,7 @@
 %tic
 
 function joh_detection()
-filenames = getAllFiles('./data_488')
+filenames = getAllFiles('../data/data_488')
 
 %filenames = {'DUP_S3P6-1-560-frame0.tif', ...
 %            'DUP_S3P6-1-560-frame1.tif', ...
