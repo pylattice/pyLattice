@@ -6,7 +6,18 @@
 %tic
 
 function joh_detection()
-filenames = getAllFiles('../data/data_488')
+
+inputParametersMap = readParam();
+
+filenames = getAllFiles(inputParametersMap('inputDataFolder'));
+
+tifFilenames = contains(filenames,".tif");
+%remove all filenames that do not contain .tif
+filenames = filenames(tifFilenames);
+
+uniqueFilenameString = inputParametersMap('uniqueFilenameString');
+wantedFilenames = contains(filenames,uniqueFilenameString);
+filenames = filenames(wantedFilenames)
 
 %filenames = {'DUP_S3P6-1-560-frame0.tif', ...
 %            'DUP_S3P6-1-560-frame1.tif', ...
@@ -46,7 +57,7 @@ rmfields = [dfields lfields {'x_init', 'y_init', 'z_init', 'mask_Ar'}];
 
        
     %detectionFilename = 'Detection3D.mat'
-    resultsPath = '/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/'
+    resultsPath = inputParametersMap('resultsFolder')
     
    
 
@@ -220,12 +231,12 @@ for k = 1:movieLength
 % output
      
     % write mask to a TIFF file
-    maskPath = ['/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/' filesep 'dmask_' num2str(k, fmt) '.tif']
+    maskPath = [resultsPath filesep 'dmask_' num2str(k, fmt) '.tif']
     writetiff(uint8(255*mask), maskPath);
 
 
     % write a CSV file
-    csvPath = ['/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/' filesep 'puncta_' num2str(k, fmt) '.csv'];
+    csvPath = [resultsPath filesep 'puncta_' num2str(k, fmt) '.csv']
     fid= fopen(csvPath,'w');
     fprintf(fid,'#x[px], y[px], z[px], A\n');
     for i = 1 : length(frameInfo.x)
@@ -236,7 +247,7 @@ for k = 1:movieLength
     % save cannot be called in a parallel loop
     % (https://www.mathworks.com/matlabcentral/answers/135285-how-do-i-use-save-with-a-parfor-loop-using-parallel-computing-toolbox)
     %save([resultsPath detectionFilename], 'frameInfo');
-    save(sprintf('%s/Detection3D_%04i.mat',resultsPath,k),'frameInfo');
+    save(sprintf('%s/Detection3D_%04i.mat',resultsPath,k),'frameInfo')
     %parsave(sprintf('%s/Detection3D_%04i.mat',resultsPath,k),frameInfo);
 
 end

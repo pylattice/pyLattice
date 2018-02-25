@@ -3,8 +3,13 @@
 
 function tracking()
 
-detectionFilename = 'Detection3D.mat'
-    resultsPath = '/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/'
+inputParametersMap = readParam();
+
+resultsPath = inputParametersMap('resultsFolder')
+detectionFilename = inputParametersMap('detectionFilename')
+trackingFilename = inputParametersMap('trackingFilename')
+
+
 
 
 
@@ -26,7 +31,7 @@ end
 
 settings = loadTrackSettingsJoh('Radius', [3 6], 'MaxGapLength', 2);
 saveResults.dir  = resultsPath
-saveResults.filename  = 'trackedFeatures.mat'
+saveResults.filename  = trackingFilename
 
 trackCloseGapsKalmanSparse(movieInfo, settings.costMatrices, settings.gapCloseParam,...
     settings.kalmanFunctions, 3, saveResults);

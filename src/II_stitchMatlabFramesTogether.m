@@ -1,10 +1,14 @@
 % after having to do all the frame analysis one by one 
 % (the parfor eats too much memory since matlab is too badly written),
 % this script now stitches all the individual frames back together
+inputParametersMap = readParam();
+
+resultsPath = inputParametersMap('resultsFolder')
+detectionFilename = inputParametersMap('detectionFilename')
+movieLength = str2num(inputParametersMap('movieLength'))
 
 
-resultsPath = '/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/';
-movieLength = 10;
+
 
 frameInfo(1:movieLength) = struct('x', [], 'y', [], 'z', [], 'A', [], 's', [], 'c', [],...
         'x_pstd', [], 'y_pstd', [], 'z_pstd', [], 'A_pstd', [], 'c_pstd', [],...
@@ -29,4 +33,4 @@ for k = 1:movieLength
 
 end
 
-save(sprintf('%s/Detection3D.mat',resultsPath),'frameInfo');
+save(sprintf('%s/%s',resultsPath,detectionFilename),'frameInfo');
