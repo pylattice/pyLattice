@@ -10,6 +10,8 @@ function joh_detection()
 inputParametersMap = readParam();
 
 filenames = getAllFiles(inputParametersMap('inputDataFolder'));
+movieLength = str2num(inputParametersMap('movieLength'))
+allowedMaxNumDetectionsPerFrame = str2num(inputParametersMap('allowedMaxNumDetectionsPerFrame'))
 
 tifFilenames = contains(filenames,".tif");
 %remove all filenames that do not contain .tif
@@ -33,7 +35,11 @@ filenames = filenames(wantedFilenames)
         
         
 fmt = ['%.' num2str(ceil(log10(3+1))) 'd'];
-movieLength = length(filenames)
+
+if movieLength == 0
+    movieLength = length(filenames)
+end
+
 % this script is taken from runDetection3D.m and modified
 
 
@@ -99,7 +105,7 @@ for k = 1:movieLength
     %        'RefineMaskLoG', false, 'WindowSize', opts.WindowSize); %#ok<PFBNS>
 
     % Alpha:
-        [pstruct, mask] = pointSourceDetection3D(frame, 1.5,'RefineMaskLoG', false );
+        [pstruct, mask] = pointSourceDetection3D(frame, sigma,'RefineMaskLoG', false );
 
 
     %test = 'helloWorld'
@@ -113,27 +119,29 @@ for k = 1:movieLength
     % this removes the data density to a manageable level.
     % remove all the bad ones for every field in the pstruct
     % names = fieldnames(pstruct)
-    idx = find(pstruct.A >5000)
-    pstruct.x             = pstruct.x(idx)
-    pstruct.y             = pstruct.y(idx)
-    pstruct.z             = pstruct.z(idx)
-    pstruct.A             = pstruct.A(idx)
-    pstruct.c             = pstruct.c(idx)
-    pstruct.x_pstd        = pstruct.x_pstd(idx)
-    pstruct.y_pstd        = pstruct.y_pstd(idx)
-    pstruct.z_pstd        = pstruct.z_pstd(idx)
-    pstruct.A_pstd        = pstruct.A_pstd(idx)
-    pstruct.c_pstd        = pstruct.c_pstd(idx)
-    pstruct.x_init        = pstruct.x_init(idx)
-    pstruct.y_init        = pstruct.y_init(idx)
-    pstruct.z_init        = pstruct.z_init(idx)
-    pstruct.sigma_r       = pstruct.sigma_r(idx)
-    pstruct.SE_sigma_r    = pstruct.SE_sigma_r(idx)
-    pstruct.RSS           = pstruct.RSS(idx)
-    pstruct.pval_Ar       = pstruct.pval_Ar(idx)
-    pstruct.hval_Ar       = pstruct.hval_Ar(idx)
-    pstruct.hval_AD       = pstruct.hval_AD(idx)
-    pstruct.isPSF         = pstruct.isPSF(idx)
+    sortedAmplitudes = sort(pstruct.A);
+    amplitudeCutoff = sortedAmplitudes(end-allowedMaxNumDetectionsPerFrame)
+    idx = find(pstruct.A >amplitudeCutoff);
+    pstruct.x             = pstruct.x(idx);
+    pstruct.y             = pstruct.y(idx);
+    pstruct.z             = pstruct.z(idx);
+    pstruct.A             = pstruct.A(idx);
+    pstruct.c             = pstruct.c(idx);
+    pstruct.x_pstd        = pstruct.x_pstd(idx);
+    pstruct.y_pstd        = pstruct.y_pstd(idx);
+    pstruct.z_pstd        = pstruct.z_pstd(idx);
+    pstruct.A_pstd        = pstruct.A_pstd(idx);
+    pstruct.c_pstd        = pstruct.c_pstd(idx);
+    pstruct.x_init        = pstruct.x_init(idx);
+    pstruct.y_init        = pstruct.y_init(idx);
+    pstruct.z_init        = pstruct.z_init(idx);
+    pstruct.sigma_r       = pstruct.sigma_r(idx);
+    pstruct.SE_sigma_r    = pstruct.SE_sigma_r(idx);
+    pstruct.RSS           = pstruct.RSS(idx);
+    pstruct.pval_Ar       = pstruct.pval_Ar(idx);
+    pstruct.hval_Ar       = pstruct.hval_Ar(idx);
+    pstruct.hval_AD       = pstruct.hval_AD(idx);
+    pstruct.isPSF         = pstruct.isPSF(idx);
     %pstruct.xCoord        = pstruct.xCoord(idx)
     %pstruct.yCoord        = pstruct.yCoord(idx)
     %pstruct.zCoord        = pstruct.zCoord(idx)

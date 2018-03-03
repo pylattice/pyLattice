@@ -19,7 +19,7 @@ trackingFilename = inputParametersMap('trackingFilename')
 % 4) Tracking
 %-------------------------------------------------------------------------------
 
-dfile = [resultsPath detectionFilename];
+dfile = [resultsPath detectionFilename]
 if exist(dfile, 'file')==2
     dfile = load(dfile);
     movieInfo = dfile.frameInfo;

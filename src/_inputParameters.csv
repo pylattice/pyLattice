@@ -1,6 +1,7 @@
-inputDataFolder, /Volumes/6big/Daphne_Janelia_1/2016_04_25_Daphne/Sample3_CD_10ulMG/Position4_Basal_apical/matlab_decon/
-resultsFolder, /Volumes/6big/Daphne_Janelia_1/2016_04_25_Daphne/Sample3_CD_10ulMG/Position4_Basal_apical/matlab_decon/analysis
-movieLength, 100
+inputDataFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/matlab_lsm_tools_aguet/data_488
+resultsFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/matlab_lsm_tools_aguet/data_488/output/
+movieLength, 0
+allowedMaxNumDetectionsPerFrame, 3000
 uniqueFilenameString, 488nm_0
 detectionFilename, Detection3D.mat
 trackingFilename, trackedFeatures.mat
