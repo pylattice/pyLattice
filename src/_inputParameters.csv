@@ -1,7 +1,21 @@
-inputDataFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/matlab_lsm_tools_aguet/data_488
-resultsFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/matlab_lsm_tools_aguet/data_488/output/
-movieLength, 0
+inputDataFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/data_/2016_04_25Daphne/Sample3_CD_10ulMG/Position5_Basal_apical_ObjScan/matlab_decon
+outputDataFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/data_/2016_04_25Daphne/Sample3_CD_10ulMG/Position5_Basal_apical_ObjScan/matlab_decon/output
+movieLength, 70
 allowedMaxNumDetectionsPerFrame, 3000
-uniqueFilenameString, 488nm_0
-detectionFilename, Detection3D.mat
-trackingFilename, trackedFeatures.mat
+framerate_msec, 5689
+
+ch0_outputDataFolder, output_488
+ch0_uniqueFilenameString, 488nm_0
+ch0_detectionFilename, Detection3D.mat
+ch0_trackingFilename, trackedFeatures.mat
+ch0_trackingCsvFilename, trackedFeatures.csv
+ch0_trackColor, green
+ch0_trackingBildFilename, tracks.bild
+
+ch1_outputDataFolder, output_560
+ch1_uniqueFilenameString, 560nm_0
+ch1_detectionFilename, Detection3D.mat
+ch1_trackingFilename, trackedFeatures.mat
+ch1_trackingCsvFilename, trackedFeatures.csv
+ch1_trackColor, purple
+ch1_trackingBildFilename, tracks.bild

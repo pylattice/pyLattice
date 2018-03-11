@@ -7,6 +7,22 @@ resultsPath = inputParametersMap('resultsFolder')
 detectionFilename = inputParametersMap('detectionFilename')
 movieLength = str2num(inputParametersMap('movieLength'))
 
+if movieLength == 0
+    filenames = getAllFiles(inputParametersMap('inputDataFolder'));
+    tifFilenames = contains(filenames,".tif");
+    filenames = filenames(tifFilenames);
+    uniqueFilenameString = inputParametersMap('uniqueFilenameString');
+    wantedFilenames = contains(filenames,uniqueFilenameString);
+    filenames = filenames(wantedFilenames)
+    movieLength = length(filenames)
+end
+
+
+
+        
+        
+fmt = ['%.' num2str(ceil(log10(3+1))) 'd'];
+
 
 
 

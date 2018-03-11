@@ -1,11 +1,13 @@
-% by Joh Schöneberg, 2017-12-28
+% by Joh Schöneberg, 2017/2018
 
 %function tracksFinal2csv()
 
-    detectionFilename = 'trackedFeatures.mat'
-    resultsPath = '/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/'
-
-    dfile = [resultsPath detectionFilename];
+    inputParametersMap = readParam();
+    resultsPath = inputParametersMap('resultsFolder')
+    trackingFilename = inputParametersMap('trackingFilename')
+    trackingCsvFilename = inputParametersMap('trackingCsvFilename')
+    
+    dfile = [resultsPath trackingFilename];
     if exist(dfile, 'file')==2
         trackedFeatures = load(dfile);
     else
@@ -19,7 +21,7 @@
     %----
     
     % write a CSV file
-    csvPath = ['/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/lattice_organoids/matlab_lsm_tools_aguet/trackedFeatures.csv'];
+    csvPath = [resultsPath trackingCsvFilename];
     fid= fopen(csvPath,'w');
     fprintf(fid,'trackId,tracklength,frameId,particleId,x,y,z,A,noIdea1,noIdea2,noIdea3,noIdea4\n');
     for i = 1:length(trackedFeatures.tracksFinal)
