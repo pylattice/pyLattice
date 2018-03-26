@@ -4,5 +4,7 @@ output
 src/00_inputParameters.csv
 src/01_inputParameters.csv
 src/03_inputParameters.csv
+src/04_inputParameters.csv
 src/sandbox.m
 src/python/tmp
+src/python/.ipynb_checkpoints

@@ -1,17 +1,21 @@
 % after having to do all the frame analysis one by one 
 % (the parfor eats too much memory since matlab is too badly written),
 % this script now stitches all the individual frames back together
+
+function II_stitchMatlabFramesTogether()
+disp('--------------------------------------------------------------')
+disp('II_stitchMatlabFramesTogether(): start...')
 inputParametersMap = readParam();
 
-resultsPath = inputParametersMap('resultsFolder')
-detectionFilename = inputParametersMap('detectionFilename')
-movieLength = str2num(inputParametersMap('movieLength'))
+resultsPath = inputParametersMap('outputDataFolder');
+detectionFilename = inputParametersMap('ch1_detectionFilename');
+movieLength = str2num(inputParametersMap('movieLength'));
 
 if movieLength == 0
     filenames = getAllFiles(inputParametersMap('inputDataFolder'));
     tifFilenames = contains(filenames,".tif");
     filenames = filenames(tifFilenames);
-    uniqueFilenameString = inputParametersMap('uniqueFilenameString');
+    uniqueFilenameString = inputParametersMap('ch1_uniqueFilenameString');
     wantedFilenames = contains(filenames,uniqueFilenameString);
     filenames = filenames(wantedFilenames)
     movieLength = length(filenames)
@@ -35,7 +39,7 @@ frameInfo(1:movieLength) = struct('x', [], 'y', [], 'z', [], 'A', [], 's', [], '
 for k = 1:movieLength
 
 
-    filepath = sprintf('%s/Detection3D_%04i.mat',resultsPath,k)
+    filepath = sprintf('%s/Detection3D_%04i.mat',resultsPath,k);
     if exist(filepath, 'file')==2
         frameInfoSlice = load(filepath);
     else
@@ -50,3 +54,7 @@ for k = 1:movieLength
 end
 
 save(sprintf('%s/%s',resultsPath,detectionFilename),'frameInfo');
+disp([resultsPath '/' detectionFilename])
+disp('II_stitchMatlabFramesTogether(): done.')
+
+end
