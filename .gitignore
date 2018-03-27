@@ -9,3 +9,5 @@ src/03:09:18_inputParameters.csv
 src/sandbox.m
 src/python/tmp
 src/python/.ipynb_checkpoints
+src/python/classes/__pycache__
+src/python/modules/__pycache__
