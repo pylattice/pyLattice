@@ -1,7 +1,9 @@
 function out = readParam()
 
+%path = [pwd '/' '_inputParameters.csv']
+path = ['/Users/johannesschoeneberg/git/LatticeTrack/src/_inputParameters.csv'];
 
-allParams = readtable('_inputParameters.csv','Delimiter',',','ReadVariableNames',false);
+allParams = readtable(path,'Delimiter',',','ReadVariableNames',false);
 %disp(allParams{1,1})
 %disp(allParams{1,2})
 

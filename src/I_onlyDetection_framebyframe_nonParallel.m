@@ -131,7 +131,10 @@ for k = 1:movieLength
     else
         idx = find(pstruct.A >0);
     end
-    amplitudeCutoff = 5000;
+    amplitudeCutoffFirstFrame = 7000;
+    amplitudeCutoffLastFrame = 3500;
+    amplitudeCutoffDeltaPerFrame = (amplitudeCutoffFirstFrame-amplitudeCutoffLastFrame)/movieLength;
+    amplitudeCutoff = amplitudeCutoffFirstFrame-k*amplitudeCutoffDeltaPerFrame;
     idx = find(pstruct.A >amplitudeCutoff);
     pstruct.x             = pstruct.x(idx);
     pstruct.y             = pstruct.y(idx);

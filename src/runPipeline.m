@@ -11,7 +11,7 @@
 addpath(genpath('./tools'))
 addpath(genpath('./dependencies'))
 
-I_onlyDetection_framebyframe_nonParallel()
+%   I_onlyDetection_framebyframe_nonParallel()
 II_stitchMatlabFramesTogether()
 III_onlyTracking()
 III_tracksRaw2csv()

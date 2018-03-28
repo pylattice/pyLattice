@@ -31,7 +31,12 @@ else
     return;
 end
 
-settings = loadTrackSettingsJoh('Radius', [3 6], 'MaxGapLength', 2);
+%settings = loadTrackSettingsJoh('Radius', [3 6], 'MaxGapLength', 2);
+settings = loadTrackSettingsAguet('Radius', [3 6], 'MaxGapLength', 2);
+%settings = loadTrackSettingsJohUTrack('Radius', [3 6], 'MaxGapLength', 2);
+%settings = loadTrackSettingsJohMergeAguetAndUTrack('Radius', [3 6]);
+
+
 saveResults.dir  = resultsPath;
 saveResults.filename  = trackingFilename;
 
