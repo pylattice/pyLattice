@@ -19,9 +19,13 @@ tifFilenames = contains(filenames,".tif");
 %remove all filenames that do not contain .tif
 filenames = filenames(tifFilenames);
 
-uniqueFilenameString = inputParametersMap('ch1_uniqueFilenameString');
-wantedFilenames = contains(filenames,uniqueFilenameString);
-filenames = sort(filenames(wantedFilenames));
+master_uniqueFilenameString = inputParametersMap('master_uniqueFilenameString');
+master_wantedFilenames = contains(filenames,master_uniqueFilenameString);
+master_filenames = sort(filenames(master_wantedFilenames));
+
+slave_uniqueFilenameString = inputParametersMap('slave_uniqueFilenameString');
+slave_wantedFilenames = contains(filenames,slave_uniqueFilenameString);
+slave_filenames = sort(filenames(slave_wantedFilenames));
 
 %filenames = {'DUP_S3P6-1-560-frame0.tif', ...
 %            'DUP_S3P6-1-560-frame1.tif', ...
@@ -40,7 +44,7 @@ filenames = sort(filenames(wantedFilenames));
 
 
 if movieLength == 0
-    movieLength = length(filenames);
+    movieLength = length(master_filenames);
 end
 
 fmt = ['%.' num2str(ceil(log10(movieLength+1))) 'd'];
@@ -63,18 +67,18 @@ lfields = {'hval_Ar', 'hval_AD', 'isPSF'};
 % slave channel fields
 sfields = [dfields {'hval_Ar', 'hval_AD'}]; % 'isPSF' is added later
 
-rmfields = [dfields lfields {'x_init', 'y_init', 'z_init', 'mask_Ar'}];
+%rmfields = [dfields lfields {'x_init', 'y_init', 'z_init', 'mask_Ar'}];
+% joh: remove mask_Ar, if left in, errors later when this is set to []
+rmfields = [dfields lfields {'x_init', 'y_init', 'z_init'}];
 
 
-       
-    %detectionFilename = 'Detection3D.mat'
-    resultsPath = inputParametersMap('outputDataFolder');
-    
-    sigma = str2num(inputParametersMap('sigma_detectionLoG'));
 
+    %joh: initialize 2D array of sigmas
+    sigma = [str2num(inputParametersMap('master_sigma_detectionLoG')); str2num(inputParametersMap('slave_sigma_detectionLoG'))]
+ 
     
     mCh = 1; %master channel ID 
-    nCh = 1; %number of channels
+    nCh = 2; %number of channels
     %k = 1 %this is a remnant of the loop over a number of frames in the script
 
 %-------
@@ -92,14 +96,8 @@ for k = 1:movieLength
     
 
 
-    % big test data set, 350mb, 5min processing time
-    %path = '/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/daphne_lattice_organoids/data_/2016_04_25Daphne/Sample3_CD_10ulMG/Position5_Basal_apical_ObjScan/matlab_decon/S3P5_488_150mw_560_300mw_Objdz150nm_ch1_CAM1_stack0000_560nm_0000000msec_0090116101msecAbs_000x_000y_003z_0000t_decon.tif'
-    path = char(filenames(k));
+    path = char(master_filenames(k));
     disp(path)
-
-    % small test data set, 10mb, 10s processing time
-    %path = '/Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/daphne_lattice_organoids/matlab_lsm_tools_aguet/DUP_S3P6-1-RFP-frame1_better_signal.tif'
-    %frame = double(readtiff(data.framePathsDS{mCh}{k})); %#ok<PFBNS>
     frame = double(readtiff(path)); %#ok<PFBNS>
     frame(frame==0) = NaN; % to avoid border effects
 
@@ -213,22 +211,34 @@ for k = 1:movieLength
         %disp(setdiff(1:nCh, mCh))
         %disp('</difference>')
         
-        % if I have only one channel, this loop is not called
+        % joh: if I have only one channel, this loop is not called
         % the loop takes the master channel detections and then
         % uses their coordinates to read out the slave channel intensities
         % the function estGaussianAmplitude3D is not available to me.
+        % update: I reverse engineered it. It is working now.
         for ci = setdiff(1:nCh, mCh)
+            fprintf('do work on slave channel id: %d ...', ci)
             %frame = double(readtiff(data.framePathsDS{ci}{k}));
+            path = char(slave_filenames(k));
+            disp(path)
             frame = double(readtiff(path)); 
             pstruct.dRange{ci} = [min(frame(:)) max(frame(:))];
+            %Joh: this is a three column table with the x,y,z positions of
+            %the master detections
             X = [pstruct.x(mCh,:)' pstruct.y(mCh,:)' pstruct.z(mCh,:)'];
             
             %joh: we done have this function. However it is not called as
             %long as we only have one channel and not multiple.
             [A_est, c_est] = estGaussianAmplitude3D(frame, sigma(ci,:));
             % linear index of positions
-            linIdx = sub2ind(size(frame), roundConstr(X(:,2),ny), roundConstr(X(:,1),nx), roundConstr(X(:,3),nz));
-            pstructSlave = fitGaussians3D(frame, X, A_est(linIdx), sigma(ci,:), c_est(linIdx), 'Ac');
+            %linIdx = sub2ind(size(frame), roundConstr(X(:,2),ny), roundConstr(X(:,1),nx), roundConstr(X(:,3),nz));
+            %pstructSlave = fitGaussians3D(frame, X, A_est(linIdx), sigma(ci,:), c_est(linIdx), 'Ac');
+            linIdx = sub2ind(size(frame), roundConstr(X(:,2),nx), roundConstr(X(:,1),ny), roundConstr(X(:,3),nz));
+            %frame(linIdx)
+%            disp('setae')
+%            disp(ci)
+%            sigma(ci,:)
+            pstructSlave = fitGaussians3D(frame, X, A_est(linIdx),sigma(ci,:), c_est(linIdx), 'Ac');
             
             % localize, and compare intensities & (x,y)-coordinates. Use localization result if it yields better contrast
             pstructSlaveLoc = fitGaussians3D(frame, X, pstructSlave.A, sigma(ci,:), pstructSlave.c, 'xyAc');
@@ -254,11 +264,14 @@ for k = 1:movieLength
         pstruct.yCoord = [pstruct.y(mCh,:)' pstruct.y_pstd(mCh,:)'];
         pstruct.zCoord = [pstruct.z(mCh,:)' pstruct.z_pstd(mCh,:)'];% * data.zAniso; , joh: dont have the anisotropy yet
         pstruct.amp =    [pstruct.A(mCh,:)' pstruct.A_pstd(mCh,:)'];
-        frameInfo = orderfields(pstruct, fieldnames(frameInfo)); %#ok<PFOUS>
+        frameInfo = orderfields(pstruct, fieldnames(frameInfo)); 
         else
         frameInfo.dRange{mCh} = [min(frame(:)) max(frame(:))];
         for ci = setdiff(1:nCh, mCh)
-            %frame = double(imread(data.framePathsDS{ci}{k}));
+            fprintf('2nd: do work on slave channel id: %d ...\n', ci)
+            %frame = double(readtiff(data.framePathsDS{ci}{k}));
+            path = char(slave_filenames(k));
+            disp(path)
             frame = double(readtiff(path)); 
             frameInfo.dRange{ci} = [min(frame(:)) max(frame(:))];
         end
@@ -267,20 +280,47 @@ for k = 1:movieLength
     
 %--------------------------------------------------------------------------------
 % output
+           
+    %detectionFilename = 'Detection3D.mat'
+    resultsPath = inputParametersMap('outputDataFolder');
+    master_outputDataFolder = inputParametersMap('master_outputDataFolder');
+    if exist([resultsPath filesep master_outputDataFolder filesep], 'file')==0
+        mkdir([resultsPath filesep master_outputDataFolder filesep])
+    end
+        
+    slave_outputDataFolder = inputParametersMap('slave_outputDataFolder');
+    if exist([resultsPath filesep slave_outputDataFolder filesep], 'file')==0
+        mkdir([resultsPath filesep slave_outputDataFolder filesep])
+    end
+ 
+
      
     % write mask to a TIFF file
-    maskPath = [resultsPath filesep 'dmask_' num2str(k, fmt) '.tif'];
+    maskPath = [resultsPath filesep master_outputDataFolder filesep 'dmask_' num2str(k, fmt) '.tif'];
     writetiff(uint8(255*mask), maskPath);
 
 
-    % write a CSV file
-    csvPath = [resultsPath filesep 'puncta_' num2str(k, fmt) '.csv'];
+    % write a CSV file master
+    csvPath = [resultsPath filesep master_outputDataFolder filesep 'puncta_' num2str(k, fmt) '.csv'];
     fid= fopen(csvPath,'w');
     fprintf(fid,'#x[px], y[px], z[px], A\n');
     for i = 1 : length(frameInfo.x)
-        fprintf(fid,'%d, %d, %d, %d \n',frameInfo.x(i),frameInfo.y(i),frameInfo.z(i),frameInfo.A(i));
+        fprintf(fid,'%d, %d, %d, %d \n',frameInfo.x(1,i),frameInfo.y(1,i),frameInfo.z(1,i),frameInfo.A(1,i));
     end
     fclose(fid);
+    
+     % write a CSV file slave
+    if(nCh == 2)
+        csvPath = [resultsPath filesep slave_outputDataFolder filesep 'puncta_' num2str(k, fmt) '.csv'];
+        fprintf('csvPath %s \n',csvPath);
+        fid= fopen(csvPath,'w');
+        fprintf(fid,'#x[px], y[px], z[px], A\n');
+        for i = 1 : length(frameInfo.x)
+            fprintf(fid,'%d, %d, %d, %d \n',frameInfo.x(2,i),frameInfo.y(2,i),frameInfo.z(2,i),frameInfo.A(2,i));
+        end
+        fclose(fid);
+    end
+        
     
     % save cannot be called in a parallel loop
     % (https://www.mathworks.com/matlabcentral/answers/135285-how-do-i-use-save-with-a-parfor-loop-using-parallel-computing-toolbox)
@@ -296,34 +336,3 @@ disp('I_onlyDetection_framebyframe_nonParallel(): done.')
 end
 
 
-%%%%  function tracking()
-
-
-
-%onlyBrightOnes = 0*mask
-%test = 'helloWorld2'
-%-------------------------------------------------------------------------------
-% 4) Tracking
-%-------------------------------------------------------------------------------
-
-%%%%  dfile = [resultsPath detectionFilename];
-%%%%  if exist(dfile, 'file')==2
-%%%%      dfile = load(dfile);
-%%%%      movieInfo = dfile.frameInfo;
-%%%%  else
-%%%%      %fprintf(['runTracking: no detection data found for ' getShortPath(data) '\n']);
-%%%%      fprintf(['runTracking: no detection data found for SOMETHING\n']);
-%%%%      return;
-%%%%  end
-%%%%  
-%%%%  settings = loadTrackSettings('Radius', [3 6], 'MaxGapLength', 2);
-
-%%%%  trackCloseGapsKalmanSparse(movieInfo, settings.costMatrices, settings.gapCloseParam,...
-%%%%      settings.kalmanFunctions, 3);
-%%%%  % i think aguet used an old utrack that took a different data structure
-%%%%  % so i leave the save out for a moment
-%%%%  %    settings.kalmanFunctions, 3, 'saveResults', 1);
-%%%%  
-%%%%  end
-
-%toc

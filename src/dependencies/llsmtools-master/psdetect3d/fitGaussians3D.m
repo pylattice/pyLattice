@@ -160,7 +160,7 @@ for p = 1:np
     
     if npx >= 20 % only perform fit if window contains sufficient data points
         
-        % fit
+        % fit        
         [prm, prmStd, ~, res] = fitGaussian3D(window, [X(p,1)-xi(p)+ox X(p,2)-yi(p)+oy X(p,3)-zi(p)+oz A(p) sigma(p,:) c(p)], mode);
         
         dx = prm(1)-ox;

@@ -490,7 +490,7 @@ for f = 1:movieLength
                 yi = roundConstr(tracks(k).y(ch,idx),ny);
                 zi = roundConstr(tracks(k).z(ch,idx),nz);
                 %[t0] = interpTrack(tracks(k).x(ch,idx), tracks(k).y(ch,idx), tracks(k).z(ch,idx), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
-                [t0] = interpTrack(tracks(k).x(ch,idx), tracks(k).y(ch,idx), tracks(k).z(ch,idx), frame, labels, sigmaV(ch,:), 0.0, 0.0, kLevel);
+                [t0] = interpTrack(tracks(k).x(ch,idx), tracks(k).y(ch,idx), tracks(k).z(ch,idx), frame, labels, sigmaV(ch,:), frame(xi,yi,zi), 0.0, kLevel);
                 tracks(k) = mergeStructs(tracks(k), ch, idx, t0);
             end
         end
@@ -509,7 +509,7 @@ for f = 1:movieLength
             yi = roundConstr(tracks(k).y(ch,1),ny);
             zi = roundConstr(tracks(k).z(ch,1),nz);
             %[t0] = interpTrack(tracks(k).x(ch,1), tracks(k).y(ch,1), tracks(k).z(ch,1), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
-            [t0] = interpTrack(tracks(k).x(ch,1), tracks(k).y(ch,1), tracks(k).z(ch,1), frame, labels, sigmaV(ch,:), 0.0, 0.0, kLevel);
+            [t0] = interpTrack(tracks(k).x(ch,1), tracks(k).y(ch,1), tracks(k).z(ch,1), frame, labels, sigmaV(ch,:), frame(xi,yi,zi), 0.0, kLevel);
             bi = f - max(1, tracks(k).start-buffer(1)) + 1;
             tracks(k).startBuffer = mergeStructs(tracks(k).startBuffer, ch, bi, t0);
         end
@@ -528,7 +528,7 @@ for f = 1:movieLength
             yi = roundConstr(tracks(k).y(ch,end),ny);
             zi = roundConstr(tracks(k).z(ch,end),nz);
             %[t0] = interpTrack(tracks(k).x(ch,end), tracks(k).y(ch,end), tracks(k).z(ch,end), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
-            [t0] = interpTrack(tracks(k).x(ch,end), tracks(k).y(ch,end), tracks(k).z(ch,end), frame, labels, sigmaV(ch,:), 0.0, 0.0, kLevel);
+            [t0] = interpTrack(tracks(k).x(ch,end), tracks(k).y(ch,end), tracks(k).z(ch,end), frame, labels, sigmaV(ch,:), frame(xi,yi,zi), 0.0, kLevel);
             bi = f - tracks(k).end;
             tracks(k).endBuffer = mergeStructs(tracks(k).endBuffer, ch, bi, t0);
         end
