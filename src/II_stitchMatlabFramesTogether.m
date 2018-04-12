@@ -8,14 +8,14 @@ disp('II_stitchMatlabFramesTogether(): start...')
 inputParametersMap = readParam();
 
 resultsPath = inputParametersMap('outputDataFolder');
-detectionFilename = inputParametersMap('ch1_detectionFilename');
+detectionFilename = inputParametersMap('detectionFilename');
 movieLength = str2num(inputParametersMap('movieLength'));
 
 if movieLength == 0
     filenames = getAllFiles(inputParametersMap('inputDataFolder'));
     tifFilenames = contains(filenames,".tif");
     filenames = filenames(tifFilenames);
-    uniqueFilenameString = inputParametersMap('ch1_uniqueFilenameString');
+    uniqueFilenameString = inputParametersMap('master_uniqueFilenameString');
     wantedFilenames = contains(filenames,uniqueFilenameString);
     filenames = filenames(wantedFilenames)
     movieLength = length(filenames)

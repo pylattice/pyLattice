@@ -21,10 +21,9 @@ class Track:
         the shape of the original image where the tracks come from
 
     """
-    def __init__(self,pandasTrackData,latticeFrameShape):
+    def __init__(self,pandasTrackData):
         tracklength = int((pandasTrackData['tracklength'].values)[0])
 
-        self.latticeFrameShape = latticeFrameShape
 
         track = pandasTrackData[0:tracklength]
 
@@ -39,15 +38,21 @@ class Track:
                 self.frameId.append(int(frameID))
         self.len = tracklength
 
-        self.coords = track[['x','y','z']].astype(float).values
+        self.m_coords = track[['m_x','m_y','m_z']].astype(float).values
+        self.s_coords = track[['s_x','s_y','s_z']].astype(float).values
 
 
-        self.cm = np.nanmean(self.coords,axis=0)
-        self.maxDist = np.linalg.norm(self.coords[0]-self.coords[-1])
+        self.m_cm = np.nanmean(self.m_coords,axis=0)
+        self.s_cm = np.nanmean(self.s_coords,axis=0)
+        self.m_maxDist = np.linalg.norm(self.m_coords[0]-self.m_coords[-1])
+        self.s_maxDist = np.linalg.norm(self.s_coords[0]-self.s_coords[-1])
 
         #self.particleIDs = track['particleId'].astype(int).values
-        self.A = track['A'].astype(float).values
-        self.Amean = np.nanmean(self.A)
+        self.m_A = track['m_A'].astype(float).values
+        self.m_Amean = np.nanmean(self.m_A)
+
+        self.s_A = track['m_A'].astype(float).values
+        self.s_Amean = np.nanmean(self.s_A)
 
         #self.frameIDs = track['frameId'].astype(int).values
 
@@ -85,7 +90,7 @@ class Track:
 
 
 
-    def writeBILD(self,BILDfilename,color='black',center=[]):
+    def writeBILD(self,BILDfilename,latticeFrameShape,color='black',center=[]):
         filename=BILDfilename
         file = open(BILDfilename,'w')
 
@@ -109,12 +114,12 @@ class Track:
             # Data for a three-dimensional line
             x0 = float(tzero[0])
             y0 = float(tzero[1])
-            z0 = np.abs(float(tzero[2]) - self.latticeFrameShape[2])
+            z0 = np.abs(float(tzero[2]) - latticeFrameShape[2])
             A0 = float(self.A[i-1])
 
             x1 = float(tone[0])
             y1 = float(tone[1])
-            z1 = np.abs(float(tone[2])- self.latticeFrameShape[2])
+            z1 = np.abs(float(tone[2])- latticeFrameShape[2])
             A1 = float(self.A[i])
 
             if(math.isnan(x0) or math.isnan(y0) or math.isnan(z0) or math.isnan(x1) or math.isnan(y1) or math.isnan(z1)):

@@ -1,4 +1,4 @@
-% by Joh Schöneberg, 2017/2018
+% by Joh Schoeneberg, 2017/2018 based on Aguet 2013
 
 function III_tracksRaw2csv()
 disp('--------------------------------------------------------------')
@@ -6,8 +6,8 @@ disp('III_tracksRaw2csv(): start...')
 
     inputParametersMap = readParam();
     resultsPath = inputParametersMap('outputDataFolder');
-    trackingFilename = inputParametersMap('ch1_trackingFilename');
-    trackingCsvFilename = inputParametersMap('ch1_trackingCsvFilename');
+    trackingFilename = inputParametersMap('trackingFilename');
+    trackingCsvFilename = inputParametersMap('trackingCsvFilename');
     
     dfile = [resultsPath '/' trackingFilename];
     if exist(dfile, 'file')==2

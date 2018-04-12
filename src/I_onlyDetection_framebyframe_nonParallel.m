@@ -122,17 +122,21 @@ for k = 1:movieLength
     % this removes the data density to a manageable level.
     % remove all the bad ones for every field in the pstruct
     % names = fieldnames(pstruct)
-    sortedAmplitudes = sort(pstruct.A);
-    if length(sortedAmplitudes) > allowedMaxNumDetectionsPerFrame
-        amplitudeCutoff = sortedAmplitudes(end-allowedMaxNumDetectionsPerFrame)
-        idx = find(pstruct.A >amplitudeCutoff);
-    else
-        idx = find(pstruct.A >0);
-    end
-    amplitudeCutoffFirstFrame = 7000;
-    amplitudeCutoffLastFrame = 3500;
-    amplitudeCutoffDeltaPerFrame = (amplitudeCutoffFirstFrame-amplitudeCutoffLastFrame)/movieLength;
-    amplitudeCutoff = amplitudeCutoffFirstFrame-k*amplitudeCutoffDeltaPerFrame;
+    
+    %sortedAmplitudes = sort(pstruct.A);
+    %if length(sortedAmplitudes) > allowedMaxNumDetectionsPerFrame
+    %    amplitudeCutoff = sortedAmplitudes(end-allowedMaxNumDetectionsPerFrame)
+    %    idx = find(pstruct.A >amplitudeCutoff);
+    %else
+    %    idx = find(pstruct.A >0);
+    %end
+    
+    %amplitudeCutoffFirstFrame = 7000;
+    %amplitudeCutoffLastFrame = 3500;
+    %amplitudeCutoffDeltaPerFrame = (amplitudeCutoffFirstFrame-amplitudeCutoffLastFrame)/movieLength;
+    %amplitudeCutoff = amplitudeCutoffFirstFrame-k*amplitudeCutoffDeltaPerFrame;
+    
+    amplitudeCutoff = 2000;
     idx = find(pstruct.A >amplitudeCutoff);
     pstruct.x             = pstruct.x(idx);
     pstruct.y             = pstruct.y(idx);

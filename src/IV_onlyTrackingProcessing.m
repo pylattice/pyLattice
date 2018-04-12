@@ -14,8 +14,8 @@ WindowSize = [];
 inputParametersMap = readParam();
 
 resultsPath = inputParametersMap('outputDataFolder');
-detectionFilename = inputParametersMap('ch1_detectionFilename');
-trackingFilename = inputParametersMap('ch1_trackingFilename');
+detectionFilename = inputParametersMap('detectionFilename');
+trackingFilename = inputParametersMap('trackingFilename');
 framerate_s = str2num(inputParametersMap('framerate_msec'))/1000;
 movieLength = str2num(inputParametersMap('movieLength'));
 
@@ -356,7 +356,8 @@ maxz = round(arrayfun(@(t) max(t.z(:)), tracks));
 filenames = getAllFiles(inputParametersMap('inputDataFolder'));
 tifFilenames = contains(filenames,".tif");
 filenames = filenames(tifFilenames);
-uniqueFilenameString = inputParametersMap('ch1_uniqueFilenameString');
+uniqueFilenameString = inputParametersMap('master_uniqueFilenameString');
+master_outputDataFolder = inputParametersMap('master_outputDataFolder');
 wantedFilenames = contains(filenames,uniqueFilenameString);
 filenames = sort(filenames(wantedFilenames));
 path = char(filenames(1));
@@ -450,7 +451,7 @@ disp('Processing tracks - gap interpolation, buffer readout:     ')
 
 for f = 1:movieLength
     
-    maskPath = [resultsPath filesep 'dmask_' num2str(f, fmt) '.tif'];
+    maskPath = [resultsPath filesep master_outputDataFolder filesep 'dmask_' num2str(f, fmt) '.tif'];
     %maskPath = [resultsPath 'Masks' filesep 'dmask_' num2str(f, fmt) '.tif'];
 
     mask = readtiff(maskPath);
@@ -461,15 +462,8 @@ for f = 1:movieLength
     for ch = 1:nCh
         %frame = double(readtiff(data.framePathsDS{ch}{f}));
         path = char(filenames(f));
-        frame = double(readtiff(path));
-        % Joh: I dont have this function
-        % Joh: I think this function estimates the amplitude in every pixel that
-        % Joh: is covered by the mask and stores them in an array.
-        %[A_est, c_est] = estGaussianAmplitude3D(frame, sigmaV(ch,:), 'WindowSize', WindowSize)        
-        %disp('sigmaV')
-        %disp(sigmaV(ch,:))
-        
-        %[A_est, c_est] = estGaussianAmplitude3D(frame, sigmaV(ch,:));        
+        frame = double(readtiff(path));        
+        [A_est, c_est] = estGaussianAmplitude3D(frame, sigmaV(ch,:));        
         
         
 
@@ -489,8 +483,7 @@ for f = 1:movieLength
                 xi = roundConstr(tracks(k).x(ch,idx),nx);
                 yi = roundConstr(tracks(k).y(ch,idx),ny);
                 zi = roundConstr(tracks(k).z(ch,idx),nz);
-                %[t0] = interpTrack(tracks(k).x(ch,idx), tracks(k).y(ch,idx), tracks(k).z(ch,idx), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
-                [t0] = interpTrack(tracks(k).x(ch,idx), tracks(k).y(ch,idx), tracks(k).z(ch,idx), frame, labels, sigmaV(ch,:), frame(xi,yi,zi), 0.0, kLevel);
+                [t0] = interpTrack(tracks(k).x(ch,idx), tracks(k).y(ch,idx), tracks(k).z(ch,idx), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
                 tracks(k) = mergeStructs(tracks(k), ch, idx, t0);
             end
         end
@@ -508,8 +501,7 @@ for f = 1:movieLength
             xi = roundConstr(tracks(k).x(ch,1),nx);
             yi = roundConstr(tracks(k).y(ch,1),ny);
             zi = roundConstr(tracks(k).z(ch,1),nz);
-            %[t0] = interpTrack(tracks(k).x(ch,1), tracks(k).y(ch,1), tracks(k).z(ch,1), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
-            [t0] = interpTrack(tracks(k).x(ch,1), tracks(k).y(ch,1), tracks(k).z(ch,1), frame, labels, sigmaV(ch,:), frame(xi,yi,zi), 0.0, kLevel);
+            [t0] = interpTrack(tracks(k).x(ch,1), tracks(k).y(ch,1), tracks(k).z(ch,1), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
             bi = f - max(1, tracks(k).start-buffer(1)) + 1;
             tracks(k).startBuffer = mergeStructs(tracks(k).startBuffer, ch, bi, t0);
         end
@@ -527,8 +519,7 @@ for f = 1:movieLength
             xi = roundConstr(tracks(k).x(ch,end),nx);
             yi = roundConstr(tracks(k).y(ch,end),ny);
             zi = roundConstr(tracks(k).z(ch,end),nz);
-            %[t0] = interpTrack(tracks(k).x(ch,end), tracks(k).y(ch,end), tracks(k).z(ch,end), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
-            [t0] = interpTrack(tracks(k).x(ch,end), tracks(k).y(ch,end), tracks(k).z(ch,end), frame, labels, sigmaV(ch,:), frame(xi,yi,zi), 0.0, kLevel);
+            [t0] = interpTrack(tracks(k).x(ch,end), tracks(k).y(ch,end), tracks(k).z(ch,end), frame, labels, sigmaV(ch,:), A_est(yi,xi,zi), c_est(yi,xi,zi), kLevel);
             bi = f - tracks(k).end;
             tracks(k).endBuffer = mergeStructs(tracks(k).endBuffer, ch, bi, t0);
         end
@@ -972,7 +963,7 @@ end
 %%%
 %%% save([resultsPath opts.FileName], 'tracks', 'processingInfo');
 %%% end
-trackingFilenameProcessed = inputParametersMap('ch1_trackingFilenameProcessed');
+trackingFilenameProcessed = inputParametersMap('trackingFilenameProcessed');
 save([resultsPath '/' trackingFilenameProcessed ], 'tracks');
 
 disp([resultsPath '/' trackingFilenameProcessed ])

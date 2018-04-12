@@ -1,35 +1,29 @@
-inputDataFolder, /Users/johannesschoeneberg/git/LatticeTrack/data/test_input/crop_100x100x100/
-outputDataFolder, /Users/johannesschoeneberg/git/LatticeTrack/data/test_input/crop_100x100x100/output
+inputDataFolder, /Users/johannesschoeneberg/git/LatticeTrack/data/test_input/crop_100x100x100_bleachCorrected/
+outputDataFolder, /Users/johannesschoeneberg/git/LatticeTrack/data/test_input/crop_100x100x100_bleachCorrected/output
 
-movieLength, 10
+movieLength, 70
 allowedMaxNumDetectionsPerFrame, 3000
 framerate_msec, 5689
 
+detectionFilename, Detection3D.mat
+trackingFilename, trackedFeatures.mat
+trackingCsvFilename, trackedFeatures.csv
+trackingFilenameProcessed, trackedFeaturesProcessed.mat
+trackingCsvFilenameProcessed, trackedFeaturesProcessed.csv
+lifetimeFilename, lifetimeData.mat
 
 
 
 master_sigma_detectionLoG, 1.3
 master_outputDataFolder, output_560
 master_uniqueFilenameString, _560_
-master_detectionFilename, Detection3D.mat
-master_trackingFilename, trackedFeatures.mat
-master_trackingCsvFilename, trackedFeatures.csv
-master_trackingFilenameProcessed, trackedFeaturesProcessed.mat
-master_trackingCsvFilenameProcessed, trackedFeaturesProcessed.csv
 master_trackColor, purple
 master_trackingBildFilename, tracks.bild
 master_trackingProcessedBildFilename, tracksProcessed.bild
 
-
-
 slave_sigma_detectionLoG, 1.3
 slave_outputDataFolder, output_488
 slave_uniqueFilenameString, _488_
-slave_detectionFilename, Detection3D.mat
-slave_trackingFilename, trackedFeatures.mat
-slave_trackingCsvFilename, trackedFeatures.csv
-slave_trackingFilenameProcessed, trackedFeaturesProcessed.mat
-slave_trackingCsvFilenameProcessed, trackedFeaturesProcessed.csv
 slave_trackColor, green
 slave_trackingBildFilename, tracks.bild
 slave_trackingProcessedBildFilename, tracksProcessed.bild

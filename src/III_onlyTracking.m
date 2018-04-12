@@ -8,8 +8,8 @@ disp('III_onlyTracking(): start...')
 inputParametersMap = readParam();
 
 resultsPath = inputParametersMap('outputDataFolder');
-detectionFilename = inputParametersMap('ch1_detectionFilename');
-trackingFilename = inputParametersMap('ch1_trackingFilename');
+detectionFilename = inputParametersMap('detectionFilename');
+trackingFilename = inputParametersMap('trackingFilename');
 
 
 
@@ -47,7 +47,7 @@ trackCloseGapsKalmanSparse(movieInfo, settings.costMatrices, settings.gapClosePa
 %trackCloseGapsKalmanSparse(movieInfo, settings.costMatrices, settings.gapCloseParam,...
 %    settings.kalmanFunctions, 3);
 
-% i think aguet used an old utrack that took a different data structure
+% joh: i think aguet used an old utrack that took a different data structure
 % so i leave the save out for a moment
 %    settings.kalmanFunctions, 3, 'saveResults', 1);
 disp([resultsPath '/' trackingFilename]);
