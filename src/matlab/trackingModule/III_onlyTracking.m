@@ -34,7 +34,7 @@ else
 end
 
 %settings = loadTrackSettingsJoh('Radius', [3 6], 'MaxGapLength', 2);
-settings = loadTrackSettingsAguet('Radius', [3 6], 'MaxGapLength', 2);
+settings = loadTrackSettingsAguet('Radius', [3 6], 'MaxGapLength', 0);
 %settings = loadTrackSettingsJohUTrack('Radius', [3 6], 'MaxGapLength', 2);
 %settings = loadTrackSettingsJohMergeAguetAndUTrack('Radius', [3 6]);
 

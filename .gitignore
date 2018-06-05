@@ -13,3 +13,15 @@ src/python/classes/__pycache__
 src/python/modules/__pycache__
 PyLattice_Manual.docx
 ~$Lattice_Manual.docx
+input/big_data/
+input/big_data_DMSO_cutoff7000_bleachCorrected/
+input/big_data_JASP_cutoff7000_bleachCorrected/
+input/big_data_LY_cutoff7000_bleachCorrected/
+input/big_data_cutoff7000/
+input/big_data_cutoff7000_bleachCorrected/
+input/imaging_data/_inputParameters.csv
+input/imaging_data/output_setting_2018-04-30_stricter_treshold10000_sigma1.3/
+input/imaging_data/output_setting_2018-04-30_stricter_treshold5000_sigma1.3/
+input/imaging_data/output_settings_2018-04-30/
+input/training_data/
+src/python/_excluded_MachineLearning/

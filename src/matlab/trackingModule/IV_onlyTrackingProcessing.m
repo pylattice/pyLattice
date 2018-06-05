@@ -27,7 +27,7 @@ dfile = [resultsPath '/' detectionFilename];
 if exist(dfile, 'file')==2
     detection = load(dfile);
 else
-    fprintf('runTrackProcessing: no detection data found for %s\n', getShortPath(data));
+    %fprintf('runTrackProcessing: no detection data found for %s\n', getShortPath(data));
     return
 end
 frameInfo = detection.frameInfo;
@@ -445,6 +445,7 @@ trackLengths = trackEnds-trackStarts+1;
 fullTracks = [tracks.visibility]==1 | (BufferAll & [tracks.visibility]==2);
 
 fmt = ['%.' num2str(ceil(log10(movieLength+1))) 'd'];
+
 %fprintf('Processing tracks (%s) - gap interpolation, buffer readout:     ', getShortPath(data));
 disp('Processing tracks - gap interpolation, buffer readout:     ')
 

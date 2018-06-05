@@ -90,12 +90,16 @@ class Track:
 
 
 
-    def writeBILD(self,BILDfilename,latticeFrameShape,color='black',center=[]):
+    def writeBILD(self,BILDfilename,latticeFrameShape,color='black',radius=0.5,center=[]):
         filename=BILDfilename
         file = open(BILDfilename,'w')
 
         file.write(".transparency 0.5\n")
-        file.write(".color "+color+"\n")
+        if(isinstance(color, str)):
+            file.write(".color "+color+"\n")
+        if(len(color)==3):
+            file.write(".color "+str(color[0])+" "+str(color[1])+" "+str(color[2])+" \n")
+
 
         line = ".comment trackID"+str(self.id)+"\n"
         file.write(line)
@@ -103,8 +107,8 @@ class Track:
 
 
         for i in range(1,self.len):
-            tzero = self.coords[i-1]
-            tone = self.coords[i]
+            tzero = self.m_coords[i-1]
+            tone = self.m_coords[i]
             if len(center) != 0:
                 tzero = tzero-center
                 tone = tone-center
@@ -115,20 +119,20 @@ class Track:
             x0 = float(tzero[0])
             y0 = float(tzero[1])
             z0 = np.abs(float(tzero[2]) - latticeFrameShape[2])
-            A0 = float(self.A[i-1])
+            A0 = float(self.m_A[i-1])
 
             x1 = float(tone[0])
             y1 = float(tone[1])
             z1 = np.abs(float(tone[2])- latticeFrameShape[2])
-            A1 = float(self.A[i])
+            A1 = float(self.m_A[i])
 
             if(math.isnan(x0) or math.isnan(y0) or math.isnan(z0) or math.isnan(x1) or math.isnan(y1) or math.isnan(z1)):
-                line = ".arrow "+str(x0)+" "+str(y0)+" "+str(z0)+" "+str(x1)+" "+str(y1)+" "+str(z1)+"\n" #" "+str(radius)+"\n"
+                line = ".arrow "+str(x0)+" "+str(y0)+" "+str(z0)+" "+str(x1)+" "+str(y1)+" "+str(z1)+" "+str(radius)+"\n" #" "+str(radius)+"\n"
                 print(line)
                 file.write(".comment "+line)
                 continue
 
-            line = ".arrow "+str(x0)+" "+str(y0)+" "+str(z0)+" "+str(x1)+" "+str(y1)+" "+str(z1)+"\n" #" "+str(radius)+"\n"
+            line = ".arrow "+str(x0)+" "+str(y0)+" "+str(z0)+" "+str(x1)+" "+str(y1)+" "+str(z1)+" "+str(radius)+"\n" #" "+str(radius)+"\n"
             file.write(line)
 
         file.close()

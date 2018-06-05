@@ -1,6 +1,6 @@
 % by Joh Schöneberg 2018
 
-% adapted from llsmtools by F. Aguet 2014
+% based on llsmtools by F. Aguet 2014
 
 function I_onlyDetection_framebyframe_nonParallel(parameterFile)
 disp('--------------------------------------------------------------')
@@ -24,20 +24,9 @@ slave_uniqueFilenameString = inputParametersMap('slave_uniqueFilenameString');
 slave_wantedFilenames = contains(filenames,slave_uniqueFilenameString);
 slave_filenames = sort(filenames(slave_wantedFilenames));
 
-%filenames = {'DUP_S3P6-1-560-frame0.tif', ...
-%            'DUP_S3P6-1-560-frame1.tif', ...
-%            'DUP_S3P6-1-560-frame2.tif',...
-%            'DUP_S3P6-1-560-frame3.tif', ...
-%            'DUP_S3P6-1-560-frame4.tif', ...
-%            'DUP_S3P6-1-560-frame5.tif',...
-%            'DUP_S3P6-1-560-frame6.tif', ...
-%            'DUP_S3P6-1-560-frame7.tif', ...
-%            'DUP_S3P6-1-560-frame8.tif',...
-%            'DUP_S3P6-1-560-frame9.tif'}
-        
-        
-        
-
+detectionAmplitudeCutoff = str2num(inputParametersMap('detectionAmplitudeCutoff'))
+       
+%disp(['detectionAmplitudeCutoff: ' detectionAmplitudeCutoff])        
 
 
 if movieLength == 0
@@ -133,7 +122,7 @@ for k = 1:movieLength
     %amplitudeCutoffDeltaPerFrame = (amplitudeCutoffFirstFrame-amplitudeCutoffLastFrame)/movieLength;
     %amplitudeCutoff = amplitudeCutoffFirstFrame-k*amplitudeCutoffDeltaPerFrame;
     
-    amplitudeCutoff = 2000;
+    amplitudeCutoff = detectionAmplitudeCutoff;
     idx = find(pstruct.A >amplitudeCutoff);
     pstruct.x             = pstruct.x(idx);
     pstruct.y             = pstruct.y(idx);
