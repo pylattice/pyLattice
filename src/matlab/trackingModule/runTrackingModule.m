@@ -12,10 +12,7 @@ addpath(genpath('./tools'))
 addpath(genpath('./dependencies'))
 
 % location of the input parameter file
-%paramFilePath = [pwd '/' '/../../../input/big_data_cutoff7000_bleachCorrected/_inputParameters.csv']
-%paramFilePath = [pwd '/' '/../../../input/big_data_DMSO_cutoff7000_bleachCorrected/_inputParameters.csv']
-%paramFilePath = [pwd '/' '/../../../input/big_data_JASP_cutoff7000_bleachCorrected/_inputParameters.csv']
-paramFilePath = [pwd '/' '/../../../input/big_data_LY_cutoff7000_bleachCorrected/_inputParameters.csv']
+paramFilePath = [pwd '/' '/../../../input/imaging_data/_inputParameters.csv']
 
 I_onlyDetection_framebyframe_nonParallel(paramFilePath)
 II_stitchMatlabFramesTogether(paramFilePath)
