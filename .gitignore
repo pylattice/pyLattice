@@ -24,4 +24,8 @@ input/imaging_data/output_setting_2018-04-30_stricter_treshold10000_sigma1.3/
 input/imaging_data/output_setting_2018-04-30_stricter_treshold5000_sigma1.3/
 input/imaging_data/output_settings_2018-04-30/
 input/training_data/
-src/python/_excluded_MachineLearning/
+src/python/_deprecated
+src/python/_MBoC_data_specific
+src/python/_notDeployed
+src/python/_notDeployed
+src/python/_tmp
