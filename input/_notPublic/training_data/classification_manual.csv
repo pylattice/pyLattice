@@ -1,0 +1,259 @@
+trackId,class,cut,comment
+1.0,1.0,,
+2.0,2.0,"[0,17][19,35][46,55]",
+3.0,0.0,"[13,14][21,25][29,32][34][37,38][45,48][51,69]",
+4.0,1.0,,
+5.0,2.0,"[0,38][39,52][53,55][59,67]",
+6.0,0.0,,
+7.0,0.0,"[0,6][12,26][29,30][35,36][60,61]",
+8.0,2.0,"[47,50][54,57]",
+9.0,2.0,"[0,38]",
+10.0,0.0,,
+11.0,2.0,"[0,20]",
+12.0,0.0,,
+13.0,0.0,,
+14.0,0.0,,
+15.0,2.0,"[0,18][52,55]",
+17.0,2.0,"[0,43]",
+18.0,2.0,"[17,36]",
+19.0,2.0,"[0,8][22,26][47,50]",
+22.0,1.0,,
+23.0,2.0,"[14,23][53,69]",
+26.0,1.0,,
+29.0,0.0,,
+30.0,2.0,,
+31.0,2.0,"[9,15][37,45]",
+32.0,0.0,,
+34.0,2.0,"[2,27]",
+35.0,0.0,,
+36.0,0.0,,
+37.0,2.0,"[0,14][16.30][34,40]",
+38.0,2.0,"[0,34][45,50][51,64]",
+39.0,2.0,"[0,10][16,29]",
+41.0,2.0,"[40,66]",
+42.0,2.0,"[5,27][40,52]",
+43.0,0.0,,
+45.0,2.0,"[0,33]",
+46.0,2.0,"[5,19]",
+47.0,2.0,"[0,30][33,39][53,64]",
+48.0,2.0,"[35,47][48.55]",
+49.0,1.0,,
+50.0,2.0,"[34,46][50,69]",
+51.0,2.0,"[0,9][30,42]",
+52.0,0.0,,
+53.0,2.0,"[5,23][26,37]",
+57.0,2.0,"[0,25]",
+58.0,2.0,"[19,30][36,48][55,64]",
+59.0,2.0,"[0,3][4,15][42,55]",
+60.0,0.0,,
+61.0,1.0,,
+62.0,2.0,"[22,69]",
+64.0,0.0,,
+65.0,0.0,,
+66.0,0.0,,
+67.0,0.0,,
+69.0,2.0,"[0,18]",
+72.0,0.0,,
+73.0,0.0,,
+77.0,2.0,"[16,52][54,66]",
+79.0,2.0,"[31,38]",
+80.0,2.0,"[22,69]",
+81.0,2.0,"[0,34]",
+82.0,2.0,,
+83.0,0.0,,
+84.0,0.0,,
+85.0,0.0,,
+86.0,0.0,,
+87.0,0.0,,
+88.0,0.0,,
+89.0,2.0,"[36,53]",
+90.0,0.0,,
+91.0,0.0,,
+92.0,0.0,,
+96.0,2.0,"[13,35][40,46]",
+97.0,2.0,"[40,47]",
+99.0,0.0,,
+100.0,0.0,,
+101.0,0.0,,
+102.0,2.0,"[50,56]",
+104.0,2.0,"[0,37]",
+105.0,0.0,,
+107.0,2.0,"[55,60]",
+108.0,0.0,,
+109.0,2.0,"[0,35]",
+111.0,0.0,,
+112.0,2.0,"[0,23][35,40]",
+113.0,2.0,"[18,42]",
+114.0,0.0,,
+115.0,2.0,"[30,49]",
+116.0,0.0,,
+117.0,0.0,,
+118.0,0.0,,
+119.0,0.0,,
+120.0,2.0,"[6,10][19,41]",
+122.0,0.0,,
+124.0,2.0,"[29,40][46,69]",
+125.0,2.0,"[49,69]",
+127.0,0.0,,
+131.0,2.0,"[26,48][57,62]",
+132.0,2.0,"[36,45]",
+133.0,2.0,"[45,51]",
+134.0,2.0,"[0,29]",
+135.0,2.0,"[7,16]",
+136.0,0.0,,
+138.0,0.0,,
+139.0,0.0,,
+143.0,0.0,,
+144.0,2.0,"[18,36]",The whole thing was not a signal only parts 18-36
+147.0,0.0,,
+149.0,0.0,,Box picked up noise but particles around indicate signal
+151.0,0.0,,Box had trouble picking up but surrounding indicates signal
+152.0,0.0,,
+155.0,0.0,,
+156.0,0.0,,Signal seems to be occuring around but not in box ask about this one
+160.0,0.0,,
+163.0,0.0,,
+165.0,0.0,,
+166.0,0.0,,Complete noise
+169.0,0.0,,
+171.0,0.0,,Box did not capture anything
+173.0,2.0,"[19,24]",[19-24] had signal but was not exactly in the middle?
+174.0,0.0,,Could not capture in the center
+176.0,0.0,,Could not capture in the center
+178.0,0.0,,Complete noise
+181.0,0.0,,Too much movement
+184.0,0.0,,Box did not capture anything
+185.0,0.0,,
+186.0,2.0,,"[35,49] slave increased in size then went down master remained relatively stable"
+187.0,0.0,,
+188.0,0.0,,Too much going on some indication of signal but not captured in box
+189.0,0.0,,
+190.0,0.0,,
+196.0,0.0,,
+199.0,0.0,,
+200.0,2.0,"[0,27]","Master shrinks then disappears then slave increases significantly [0,27]"
+201.0,0.0,,
+203.0,0.0,,
+205.0,0.0,,
+206.0,2.0,"[56,69]","Very obvious growth of slave [56,69]"
+207.0,0.0,,
+208.0,0.0,,Had random growth of master and slave but box did not capture well
+209.0,0.0,,Box did not capture
+211.0,0.0,,
+213.0,0.0,,Box did not capture
+216.0,1.0,"[24,49]",[24-49] regular signal ask about whether this is 2 or 1
+218.0,0.0,,
+221.0,0.0,,
+225.0,2.0,"[55,61]",[55-61] growth of master/slave then decline but a little on edge
+226.0,2.0,"[0,25]",[0-25] growth in master with a growth in slave at multiple interval
+227.0,0.0,,
+228.0,0.0,,
+229.0,0.0,,
+230.0,0.0,,
+231.0,0.0,,
+232.0,0.0,,Slave maintained its shape but was not always in the box
+234.0,0.0,,Had signal pattern but box did not pick up 
+237.0,2.0,"[43,51]",[43-51] slave increased in size and went down while master increased 
+240.0,0.0,"[55,59]",[55-59] had very nice slave growth
+241.0,2.0,"[52,60]",[52-60] master grew then shrunked and [60-65] seems like a signal
+246.0,0.0,,
+247.0,0.0,,
+250.0,0.0,"[53,55]",[53-55] had interesting signal related pattern but seemed too short
+254.0,0.0,,
+255.0,1.0,"[5,31]",[5-31] 
+256.0,2.0,"[26,32]",[26-32] seemed like a signal
+257.0,0.0,,
+258.0,0.0,,
+259.0,0.0,,
+260.0,0.0,,
+261.0,0.0,,
+262.0,2.0,"[0,14]",[0-14] signal!
+263.0,2.0,"[0,21]",[0-21] there was a large growth in the master
+265.0,0.0,,
+269.0,0.0,,
+270.0,0.0,,
+272.0,0.0,,
+273.0,0.0,,
+274.0,2.0,"[30,52]",[30-52] Slave increases on master then goes down and then it repeats one more time
+282.0,0.0,,
+287.0,0.0,,
+288.0,0.0,,
+289.0,0.0,,
+290.0,0.0,,
+291.0,0.0,,
+293.0,0.0,,
+296.0,0.0,,
+297.0,0.0,,
+298.0,0.0,,
+305.0,0.0,,
+306.0,0.0,,
+307.0,0.0,,
+309.0,0.0,,
+310.0,0.0,,
+312.0,0.0,,
+313.0,0.0,,
+316.0,0.0,,
+318.0,0.0,,
+320.0,2.0,"[1,20]",[1-20] lots of interesting fluctuations between master and slave
+324.0,0.0,,
+325.0,1.0,,
+330.0,1.0,,this looks perfect
+331.0,0.0,,jumps around all over!
+332.0,2.0,"[5,-1]",is almost a perfect track but there is the the end of an other prepended. Crop away first 5 track frames 
+334.0,0.0,,
+335.0,0.0,,"interesting, it catches something but that is so weak and only in the cltr channel"
+336.0,0.0,,"moves way too fast, looks deceaving though"
+337.0,0.0,,looks like something but then ist actually really bad
+341.0,2.0,"[0,9], [9,-1]","wow, these 2 events happen really right behind each other! On the same spot, one after the other; no idea how to separate that at some point automatically…"
+343.0,1.0,,great. Jumped a little too far at the end of the track. => reduce the distance to search for further tracks
+346.0,0.0,,"moves too fast, jumps from one blob to an other, with nothing in between"
+347.0,0.0,,"moves too fast, jumps from one blob to an other, with nothing in between"
+348.0,0.0,,"moves too fast, jumps from one blob to an other, with nothing in between"
+351.0,0.0,,"moves too fast, jumps from one blob to an other, with nothing in between"
+354.0,1.0,,looking good
+356.0,0.0,,nothing here
+358.0,1.0,"[1,-1]","I think this is just a dim event. But a legit event still, hard to classify"
+360.0,0.0,,doesn’t move but there is just nothing
+362.0,0.0,,nothing here
+365.0,0.0,,"moves too fast, jumps from one blob to an other, with nothing in between"
+367.0,0.0,,there is just nothing here
+368.0,0.0,,"nothing here, moves fast"
+371.0,0.0,,"nothing here, moves fast"
+373.0,2.0,"[0,8],[9,-1]","looks great, two peaks"
+376.0,0.0,,"nothing here, moves fast"
+377.0,2.0,"[0,7],[7,-1]",clear two tracks being followed. Nice to cut
+378.0,0.0,,
+379.0,2.0,"[0,9]","one track in there, rest hops away"
+380.0,0.0,,this is not noise but it is a very wrong track that jumps all over the place
+381.0,2.0,"[5,-4]",this is not noise but it is a very wrong track that jumps all over the place
+382.0,0.0,,this is not noise but it is a very wrong track that jumps all over the place
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
