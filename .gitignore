@@ -1,5 +1,7 @@
 data
 output
+install.sh
+.installation__git_root_path
 .ipynb_checkpoints
 src/00_inputParameters.csv
 src/01_inputParameters.csv
