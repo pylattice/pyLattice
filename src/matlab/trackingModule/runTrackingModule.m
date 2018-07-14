@@ -12,7 +12,7 @@ addpath(genpath('./tools'))
 addpath(genpath('./dependencies'))
 
 % location of the input parameter file
-paramFilePath = [pwd '/' '/../../../input/imaging_data/_inputParameters.csv']
+paramFilePath = [pwd '/' '/../../input/imaging_data/_inputParameters.csv']
 
 I_onlyDetection_framebyframe_nonParallel(paramFilePath)
 II_stitchMatlabFramesTogether(paramFilePath)

@@ -1,5 +1,5 @@
-inputDataFolder, /Users/johannesschoeneberg/git/pyLattice/input/imaging_data
-outputDataFolder, /Users/johannesschoeneberg/git/pyLattice/input/imaging_data/output
+inputDataFolder, /Users/johannesschoeneberg/git/JohSchoeneberg/pyLattice/input/imaging_data
+outputDataFolder, /Users/johannesschoeneberg/git/JohSchoeneberg/pyLattice/input/imaging_data/output
 
 movieLength, 10
 detectionAmplitudeCutoff, 7000

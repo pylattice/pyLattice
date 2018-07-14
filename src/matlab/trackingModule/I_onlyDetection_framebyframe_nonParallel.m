@@ -10,7 +10,7 @@ inputParametersMap = readParam(parameterFile);
 
 filenames = getAllFiles(inputParametersMap('inputDataFolder'));
 movieLength = str2num(inputParametersMap('movieLength'));
-allowedMaxNumDetectionsPerFrame = str2num(inputParametersMap('allowedMaxNumDetectionsPerFrame'));
+%allowedMaxNumDetectionsPerFrame = str2num(inputParametersMap('allowedMaxNumDetectionsPerFrame'));
 
 tifFilenames = contains(filenames,".tif");
 %remove all filenames that do not contain .tif
@@ -80,7 +80,8 @@ for k = 1:movieLength
     'sigma_r', [], 'SE_sigma_r', [], 'RSS', [], 'pval_Ar', [], 'hval_Ar', [],  'hval_AD', [], 'isPSF', [],...
     'xCoord', [], 'yCoord', [], 'zCoord', [], 'amp', [], 'dRange', []);
     
-
+    disp(k)
+    disp(master_filenames)
 
     path = char(master_filenames(k));
     disp(path)
