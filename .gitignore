@@ -4,6 +4,7 @@ _MBoC_data_specific/
 _deprecated/
 _notDeployed/
 _tmp/
+_notPublic/
 src/jupyter/.ipynb_checkpoints/
 
 
