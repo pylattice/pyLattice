@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pylattice
+Version: 0.1.4
+Summary: A python library for lattice light-sheet image analysis
+Home-page: https://github.com/JohSchoeneberg/pyLattice
+Author: Joh Schoeneberg
+Author-email: joh@schoeneberglab.org
+License: UNKNOWN
+Description: # pyLattice
+        A python library for advanced lattice light-sheet image analysis
+        
+        Welcome!
+        
+        Please read the [manual](./PyLattice_Manual.pdf) to get started.
+        
+        ![Logo](./pyLattice_logo.png)
+        
+        
+        ## FAQ
+        
+        [Lattice Light-Sheet Microscopy](https://en.wikipedia.org/wiki/Lattice_light-sheet_microscopy)
+        
+        ## References
+        
+        - scikit http://scikit-image.org
+        - ChimeraX https://www.cgl.ucsf.edu/chimerax/
+        - llsm tools https://github.com/francois-a/llsmtools
+        - utrack https://www.utsouthwestern.edu/labs/danuser/software/#utrack_ancs
+        - Joh Schöneberg http://www.schoeneberglab.org
+        - The Betzig Lab https://www.janelia.org/lab/betzig-lab
+        - The Drubin/Barnes Lab https://drubinbarneslab.berkeley.edu
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown

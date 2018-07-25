@@ -1,0 +1,6 @@
+matplotlib >= 2.1.0
+numpy >= 1.13.3
+pandas >= 0.22.0
+scikit-image >= 0.13.0
+Pillow >= 4.2.1
+pims >= 0.4.1

@@ -5,7 +5,7 @@ Welcome!
 
 Please read the [manual](./PyLattice_Manual.pdf) to get started.
 
-![Logo](./pyLattice_logo.png)
+![Logo](./docs/pyLattice_logo.png)
 
 
 ## FAQ

@@ -1,0 +1,29 @@
+inputDataFolder, /Users/johannesschoeneberg/Desktop/PostDoc/drubin_lab/organoids_lattice_data/data_/2016_04_25Daphne/Sample3_CD_10ulMG/Position5_Basal_apical_ObjScan/matlab_decon
+outputDataFolder, /Users/johannesschoeneberg/git/pyLattice/input/big_data/output
+
+movieLength, 70
+allowedMaxNumDetectionsPerFrame, 3000
+framerate_msec, 5689
+
+detectionFilename, Detection3D.mat
+trackingFilename, trackedFeatures.mat
+trackingCsvFilename, trackedFeatures.csv
+trackingFilenameProcessed, trackedFeaturesProcessed.mat
+trackingCsvFilenameProcessed, trackedFeaturesProcessed.csv
+lifetimeFilename, lifetimeData.mat
+
+
+
+master_sigma_detectionLoG, 1.1
+master_outputDataFolder, output_560
+master_uniqueFilenameString, _560nm_
+master_trackColor, purple
+master_trackingBildFilename, tracks.bild
+master_trackingProcessedBildFilename, tracksProcessed.bild
+
+slave_sigma_detectionLoG, 1.1
+slave_outputDataFolder, output_488
+slave_uniqueFilenameString, _488nm_
+slave_trackColor, green
+slave_trackingBildFilename, tracks.bild
+slave_trackingProcessedBildFilename, tracksProcessed.bild
