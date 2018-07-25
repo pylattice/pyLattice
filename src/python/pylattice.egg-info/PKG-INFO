@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pylattice
-Version: 0.1.4
+Version: 0.1.1
 Summary: A python library for lattice light-sheet image analysis
 Home-page: https://github.com/JohSchoeneberg/pyLattice
 Author: Joh Schoeneberg
@@ -13,7 +13,7 @@ Description: # pyLattice
         
         Please read the [manual](./PyLattice_Manual.pdf) to get started.
         
-        ![Logo](./pyLattice_logo.png)
+        ![Logo](./docs/pyLattice_logo.png)
         
         
         ## FAQ

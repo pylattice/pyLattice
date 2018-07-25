@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("../../README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="pylattice",
-    version="0.1.4",
+    version="0.1.1",
     author="Joh Schoeneberg",
     author_email="joh@schoeneberglab.org",
     description="A python library for lattice light-sheet image analysis",

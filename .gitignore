@@ -4,4 +4,7 @@ _MBoC_data_specific/
 _deprecated/
 _notDeployed/
 _tmp/
+src/jupyter/.ipynb_checkpoints/
+
+
 src/matlab/sandbox.m
