@@ -8,9 +8,22 @@ Please read the [manual](./PyLattice_Manual.pdf) to get started.
 ![Logo](./docs/pyLattice_logo.png)
 
 
+## Installation
+
+clone or download the repository
+```bash
+pip install pylattice
+pip install -r requirements.txt
+cd source/jupyter
+jpyter notebook
+```
+in browser open `latticeFrame_showFrame.ipynb`
+
 ## FAQ
 
 [Lattice Light-Sheet Microscopy](https://en.wikipedia.org/wiki/Lattice_light-sheet_microscopy)
+
+
 
 ## References
 
