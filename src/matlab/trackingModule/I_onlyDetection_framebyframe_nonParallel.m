@@ -80,6 +80,7 @@ for k = 1:movieLength
     'sigma_r', [], 'SE_sigma_r', [], 'RSS', [], 'pval_Ar', [], 'hval_Ar', [],  'hval_AD', [], 'isPSF', [],...
     'xCoord', [], 'yCoord', [], 'zCoord', [], 'amp', [], 'dRange', []);
     
+    disp("k")
     disp(k)
     disp(master_filenames)
 
