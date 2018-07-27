@@ -17,6 +17,16 @@ The solution can be found here:
 https://stackoverflow.com/questions/48458660/library-not-loaded-loader-path-libmex-dylib-in-matlab
 
 
+First, find out your matlab version::
+
+	find /Applications/ -maxdepth 1 -type d -name 'MAT*'
+
+In my case this is::
+
+	MATLAB_R2017b.app	
+	
+In the subsequent steps, the 2017b matlab version is used. If you have a different version, replace ``MATLAB_R2017b.app`` with your version below.
+
 You have to add the libraries to your matlab startup script::
 
 	/Applications/MATLAB_R2017b.app/bin/.matlab7rc.sh.
