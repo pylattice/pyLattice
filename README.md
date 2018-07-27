@@ -15,9 +15,9 @@ clone or download the repository
 pip install pylattice
 pip install -r requirements.txt
 cd source/jupyter
-jpyter notebook
+jupyter notebook
 ```
-in browser open `latticeFrame_showFrame.ipynb`
+in browser open `source/jupyter/latticeFrame_showFrame.ipynb`
 
 ## FAQ
 
