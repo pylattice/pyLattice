@@ -11,10 +11,12 @@
 Welcome to pyLattice's documentation!
 =====================================
 
+Visit `pyLattice on Github <https://github.com/JohSchoeneberg/pyLattice>`_
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   
    debuggingMatlabMac
 
 Indices and tables
