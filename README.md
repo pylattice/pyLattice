@@ -19,6 +19,11 @@ jupyter notebook
 ```
 in browser open `source/jupyter/latticeFrame_showFrame.ipynb`
 
+## Test data
+
+A small test data set can be found here:
+https://www.dropbox.com/sh/s7q45h7wqoco5hl/AAB2Tt5lTGSkF2VhMTMM8NEWa?dl=0
+
 ## FAQ
 
 [Lattice Light-Sheet Microscopy](https://en.wikipedia.org/wiki/Lattice_light-sheet_microscopy)
