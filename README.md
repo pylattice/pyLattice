@@ -3,7 +3,7 @@ A python library for advanced lattice light-sheet image analysis
 
 Welcome!
 
-Please read the [manual](./PyLattice_Manual.pdf) to get started.
+Please read the [manual](./docs/PyLattice_Manual.pdf) to get started.
 
 ![Logo](./docs/pyLattice_logo.png)
 
