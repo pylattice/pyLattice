@@ -25,6 +25,26 @@ def getCubeMeshIndexes(cubeSize = 5, center=[0,0,0]):
 
 
 
+
+def getRidOfNegativeIndexes(indexesArray):
+    newIndexes = []
+    for index in indexesArray:
+        if(np.min(index)>=0):
+            newIndexes.append(index)
+    return(np.array(newIndexes))
+
+
+
+def getIndexesWhereAllArrayEntriesArePositive(indexesArray):
+    ''' used to draw boxes around coordinates in a tiff file '''
+    newIndexes = []
+    for i in range(0,len(indexesArray)):
+        index=indexesArray[i]
+        if(np.min(index)>=0):
+            newIndexes.append(i)
+    return(np.array(newIndexes))
+
+
 def cropLatticeFrame(frame,center,margin):
     zMax,yMax,xMax = frame.shape
     startx = max(center[0]-margin[0],0)
