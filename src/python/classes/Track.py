@@ -7,6 +7,7 @@ import math
 import skimage
 import json
 
+import matplotlib.pyplot as plt
 
 class Track:
     """Class for a processed track.
