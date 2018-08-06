@@ -7,6 +7,7 @@ _tmp/
 _notPublic/
 src/jupyter/.ipynb_checkpoints/
 src/python/functions/__pycache__/
+src/python/classes/__pycache__/
 
 
 src/matlab/sandbox.m
