@@ -14,10 +14,10 @@ clone or download the repository
 ```bash
 pip install pylattice
 pip install -r requirements.txt
-cd source/jupyter
+cd src/jupyter
 jupyter notebook
 ```
-in browser open `source/jupyter/latticeFrame_showFrame.ipynb`
+in browser open `src/jupyter/latticeFrame_showFrame.ipynb`
 
 ## Test data
 
