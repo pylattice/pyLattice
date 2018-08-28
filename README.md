@@ -3,7 +3,7 @@ A python library for advanced lattice light-sheet image analysis
 
 Welcome!
 
-Please read the [manual](./docs/PyLattice_Manual.pdf) to get started.
+
 
 ![Logo](./docs/pyLattice_logo.png)
 
@@ -22,7 +22,11 @@ in browser open `source/jupyter/latticeFrame_showFrame.ipynb`
 ## Test data
 
 A small test data set can be found here:
-https://www.dropbox.com/sh/s7q45h7wqoco5hl/AAB2Tt5lTGSkF2VhMTMM8NEWa?dl=0
+https://www.dropbox.com/sh/2n86tvgtr1a6i3h/AAAcJ84K0qdqq3USCtO1jUcra?dl=0
+
+## Manual
+
+Please read the [manual](./docs/PyLattice_Manual.pdf) to get started.
 
 ## FAQ
 
