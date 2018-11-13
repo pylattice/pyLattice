@@ -26,7 +26,7 @@ https://www.dropbox.com/sh/2n86tvgtr1a6i3h/AAAcJ84K0qdqq3USCtO1jUcra?dl=0
 
 ## Manual
 
-Please read the [manual](./docs/PyLattice_Manual.pdf) to get started.
+Please read the [manual](./docs/PyLattice_Manual.pdf) to get started. [Read the docs](https://pylattice.readthedocs.io/en/latest/index.html).
 
 ## FAQ
 
