@@ -33,3 +33,16 @@ def maxIntensityProjection(latticeMovieFrame):
     plt.tight_layout()
 
     plt.show()
+
+def cropLatticeFrame(frame,center,margin):
+    zMax,yMax,xMax = frame.shape
+    startx = max(center[0]-margin[0],0)
+    endx = min(center[0]+margin[0],xMax)
+
+    starty = max(center[1]-margin[1],0)
+    endy = min(center[1]+margin[1],yMax)
+
+    startz = max(center[2]-margin[2],0)
+    endz = min(center[2]+margin[2],xMax)
+
+    return frame[startz:endz,starty:endy,startx:endx]
