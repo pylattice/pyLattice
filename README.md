@@ -32,7 +32,9 @@ Please read the [manual](./docs/PyLattice_Manual.pdf) to get started. [Read the 
 
 [Lattice Light-Sheet Microscopy](https://en.wikipedia.org/wiki/Lattice_light-sheet_microscopy)
 
+## Cite
 
+Please cite our work if you find pyLattice useful: https://doi.org/10.1091/mbc.E18-06-0375
 
 ## References
 
