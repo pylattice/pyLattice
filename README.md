@@ -22,7 +22,7 @@ in browser open `src/jupyter/latticeFrame_showFrame.ipynb`
 ## Test data
 
 A small test data set can be found here:
-https://www.dropbox.com/sh/2n86tvgtr1a6i3h/AAAcJ84K0qdqq3USCtO1jUcra?dl=0
+https://www.dropbox.com/sh/znznvp1lmvwfykp/AADzJB456aFHll1bYCPzdQhNa?dl=0
 
 ## Manual
 
