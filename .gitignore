@@ -7,6 +7,7 @@ _tmp/
 _notPublic/
 src/jupyter/.ipynb_checkpoints/
 src/python/functions/__pycache__/
+src/python/pylattice/functions/__pycache__/
 src/python/classes/__pycache__/
 src/SwAK_tools/rotate180/.ipynb_checkpoints/
 
