@@ -14,7 +14,7 @@ movieLength = str2num(inputParametersMap('movieLength'));
 
 tifFilenames = contains(filenames,".tif");
 %remove all filenames that do not contain .tif
-filenames = filenames(tifFilenames);
+filenames = filenames(tifFilenames)
 
 if (length(filenames) == 0)
         message = strcat("no files found at ",inputParametersMap('inputDataFolder')," -> check the input file.")
