@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   <meta content="reStructuredText, demonstration, demo, parser" name="keywords" />
@@ -14,12 +13,18 @@
   
 
   
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
@@ -27,15 +32,11 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../../../index.html" class="icon icon-home"> pyLattice
+            <a href="../../../../index.html" class="icon icon-home" alt="Documentation Home"> pyLattice
           
 
           
@@ -81,6 +82,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -88,57 +90,15 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">3. Paragraph Level Markup</a><ul>
-<li><a class="reference internal" href="#inline-markup">3.1. Inline Markup</a></li>
-<li><a class="reference internal" href="#math">3.2. Math</a></li>
-<li><a class="reference internal" href="#meta">3.3. Meta</a></li>
-<li><a class="reference internal" href="#blocks">3.4. Blocks</a><ul>
-<li><a class="reference internal" href="#literal-blocks">3.4.1. Literal Blocks</a></li>
-<li><a class="reference internal" href="#line-blocks">3.4.2. Line Blocks</a></li>
-<li><a class="reference internal" href="#block-quotes">3.4.3. Block Quotes</a></li>
-<li><a class="reference internal" href="#doctest-blocks">3.4.4. Doctest Blocks</a></li>
-<li><a class="reference internal" href="#code-blocks">3.4.5. Code Blocks</a><ul>
-<li><a class="reference internal" href="#emphasized-lines-with-line-numbers">3.4.5.1. Emphasized lines with line numbers</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sidebar">3.5. Sidebar</a><ul>
-<li><a class="reference internal" href="#code-with-sidebar">3.5.1. Code with Sidebar</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#references">3.6. References</a><ul>
-<li><a class="reference internal" href="#footnotes">3.6.1. Footnotes</a></li>
-<li><a class="reference internal" href="#citations">3.6.2. Citations</a></li>
-<li><a class="reference internal" href="#glossary">3.6.3. Glossary</a></li>
-<li><a class="reference internal" href="#targets">3.6.4. Targets</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#directives">3.7. Directives</a><ul>
-<li><a class="reference internal" href="#contents">3.7.1. Contents</a></li>
-<li><a class="reference internal" href="#centered-text">3.7.2. Centered text</a></li>
-<li><a class="reference internal" href="#images-figures">3.7.3. Images &amp; Figures</a><ul>
-<li><a class="reference internal" href="#images">3.7.3.1. Images</a></li>
-<li><a class="reference internal" href="#figures">3.7.3.2. Figures</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#admonitions">3.7.4. Admonitions</a></li>
-<li><a class="reference internal" href="#topics-sidebars-and-rubrics">3.7.5. Topics, Sidebars, and Rubrics</a></li>
-<li><a class="reference internal" href="#target-footnotes">3.7.6. Target Footnotes</a></li>
-<li><a class="reference internal" href="#replacement-text">3.7.7. Replacement Text</a></li>
-<li><a class="reference internal" href="#compound-paragraph">3.7.8. Compound Paragraph</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#download-links">3.8. Download Links</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -177,7 +137,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li><span class="section-number">3. </span>Paragraph Level Markup</li>
     
@@ -274,7 +234,7 @@ and explicit roles for <em>standard</em> <strong>inline</strong> <code class="do
 <p>GUI labels are a useful way to indicate that <span class="guilabel">Some action</span> is to be taken by the user.
 The GUI label should not run over <code class="docutils literal notranslate"><span class="pre">line-height</span></code> so as not to <span class="guilabel">interfere</span> with text from adjacent lines.</p>
 <p>Key-bindings indicate that the read is to press a button on the keyboard or mouse,
-for example <kbd class="kbd docutils literal notranslate">MMB</kbd> and <kbd class="kbd docutils literal notranslate">Shift-MMB</kbd>. Another useful markup to indicate a user action
+for example <kbd class="kbd docutils literal notranslate">MMB</kbd> and <kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>-<kbd class="kbd docutils literal notranslate">MMB</kbd></kbd>. Another useful markup to indicate a user action
 is to use <code class="docutils literal notranslate"><span class="pre">menuselection</span></code> this can be used to show short and long menus in software.
 For example, and <code class="docutils literal notranslate"><span class="pre">menuselection</span></code> can be seen here that breaks is too long to fit on this line.
 <span class="menuselection">My ‣ Software ‣ Some menu ‣ Some sub menu 1 ‣ sub menu 2</span>.</p>
@@ -600,13 +560,13 @@ nonexistent footnote: <a href="#id63"><span class="problematic" id="id14">[5]_</
 </div>
 <div class="section" id="glossary">
 <h3><a class="toc-backref" href="#id49"><span class="section-number">3.6.3. </span>Glossary</a><a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h3>
-<p>This is a glossary with definition terms for thing like <a class="reference internal" href="#term-writing"><span class="xref std std-term">Writing</span></a>:</p>
+<p>This is a glossary with definition terms for thing like <a class="reference internal" href="#term-Writing"><span class="xref std std-term">Writing</span></a>:</p>
 <dl class="glossary simple">
-<dt id="term-documentation">Documentation</dt><dd><p>Provides users with the knowledge they need to use something.</p>
+<dt id="term-Documentation">Documentation</dt><dd><p>Provides users with the knowledge they need to use something.</p>
 </dd>
-<dt id="term-reading">Reading</dt><dd><p>The process of taking information into ones mind through the use of eyes.</p>
+<dt id="term-Reading">Reading</dt><dd><p>The process of taking information into ones mind through the use of eyes.</p>
 </dd>
-<dt id="term-writing">Writing</dt><dd><p>The process of putting thoughts into a medium for other people to <a class="reference internal" href="#term-reading"><span class="xref std std-term">read</span></a>.</p>
+<dt id="term-Writing">Writing</dt><dd><p>The process of putting thoughts into a medium for other people to <a class="reference internal" href="#term-Reading"><span class="xref std std-term">read</span></a>.</p>
 </dd>
 </dl>
 </div>
@@ -816,11 +776,19 @@ with the “compound” directive.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2020, Joh Schoeneberg
+        
+        &copy; Copyright 2018-2020, the pyLattice development team
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -831,7 +799,6 @@ with the “compound” directive.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
