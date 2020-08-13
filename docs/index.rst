@@ -68,6 +68,14 @@ Cite
 Please `cite`_ our work if you find pyLattice useful: https://doi.org/10.1091/mbc.E18-06-0375
 
 
+Contribute
+************
+
+Please help us to make LLSM imaging more accessible to the community!
+Fork the repo, add code and create a pull request.
+Here you can find our `Contributor Guidelines`.: https://docs.google.com/document/d/1Gd5Fr0_sTnez1NEBM7xfisXZ2jR5IbkoLws6EY2Cg2Y/edit?usp=sharing
+
+
 .. _dataset: https://www.dropbox.com/sh/znznvp1lmvwfykp/AADzJB456aFHll1bYCPzdQhNa?dl=0
 .. _manual: https://pylattice.readthedocs.io/en/latest/index.html
 .. _here: https://github.com/JohSchoeneberg/pyLattice_tutorials
