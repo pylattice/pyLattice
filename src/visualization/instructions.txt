@@ -1,0 +1,20 @@
+Cyna Shirazinejad, Drubin/Barnes Lab
+
+Notes for JupyterLab for visualizing and analyzing cme tracks
+
+Requirements for use:
+1) an OSX machine
+2) Anaconda (I recommend Anaconda over Miniconda if your computer has room)
+
+Instructions:
+1) open your Terminal
+2) navigate to the directory where the code is located (.ipynb file and .yml file)
+($ in front of text means it is typed into Terminal. Do not include the $ when copying into Terminal)
+3) $conda update -n base -c defaults conda
+4) $conda install -c anaconda pip
+5) $conda env create -f visualization_environment.yml
+6) $conda activate visualization
+7) $jupyter labextension install @jupyter-widgets/jupyterlab-manager
+8) $jupyter lab
+
+Enjoy

@@ -1,0 +1,30 @@
+name: visualization
+dependencies:
+  - conda-forge::python=3.8
+  - conda-forge::pip
+  - conda-forge::nd2reader
+  - conda-forge::numpy
+  - conda-forge::matplotlib
+  - conda-forge::itk
+  - conda-forge::zarr
+  - conda-forge::fsspec>=0.3.3
+  - conda-forge::ipywidgets
+  - conda-forge::tqdm
+  - conda-forge::llvm-openmp
+  - conda-forge::jupyter
+  - conda-forge::jupyterlab
+  - conda-forge::ffmpeg
+  - conda-forge::pims
+  - conda-forge::nodejs
+  - conda-forge::matplotlib
+  - conda-forge::numba
+  - conda-forge::pip
+  - conda-forge::scikit-image
+  - pip:
+    - requests
+    - napari
+    - sklearn
+    - opencv-python
+    - napari[all]
+    - PyQt5>=5.12.3
+    - git+https://github.com/guiwitz/naparimovie.git@master#egg=naparimovie
