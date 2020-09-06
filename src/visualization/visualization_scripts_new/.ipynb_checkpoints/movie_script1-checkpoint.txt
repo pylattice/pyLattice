@@ -1,0 +1,2 @@
+From frame 0 to frame 40
+-shift time by 90

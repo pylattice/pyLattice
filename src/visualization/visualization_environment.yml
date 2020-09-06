@@ -27,4 +27,5 @@ dependencies:
     - opencv-python
     - napari[all]
     - PyQt5>=5.12.3
+    - imagecodecs
     - git+https://github.com/guiwitz/naparimovie.git@master#egg=naparimovie
