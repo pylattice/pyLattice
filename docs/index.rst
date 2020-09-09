@@ -65,7 +65,9 @@ FAQ
 Cite
 ************
 
-Please `cite`_ our work if you find pyLattice useful: https://doi.org/10.1091/mbc.E18-06-0375
+Please `cite`_ our work if you find pyLattice useful: 
+pyLattice: https://doi.org/10.1091/mbc.E18-06-0375
+pyLattice deep_learning: https://doi.org/10.1109/BIBM47256.2019.8983012
 
 
 Contribute
